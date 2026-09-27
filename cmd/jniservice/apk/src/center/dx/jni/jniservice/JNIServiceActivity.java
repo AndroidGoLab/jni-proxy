@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -46,7 +47,11 @@ public class JNIServiceActivity extends Activity {
 
         statusText = new TextView(this);
         statusText.setTextSize(16);
-        layout.addView(statusText);
+        statusText.setTypeface(Typeface.create("sans-serif-condensed", Typeface.NORMAL));
+        statusText.setSingleLine(false);
+        layout.addView(statusText, new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT));
 
         Button grantBtn = new Button(this);
         grantBtn.setText("Grant All Permissions");
@@ -63,6 +68,7 @@ public class JNIServiceActivity extends Activity {
 
         // Start the foreground service (no permissions needed for gRPC itself).
         Intent intent = new Intent(this, JNIServiceForeground.class);
+        intent.putExtra(JNIServiceForeground.EXTRA_FROM_ACTIVITY, true);
         startForegroundService(intent);
     }
 
@@ -83,13 +89,16 @@ public class JNIServiceActivity extends Activity {
         }
 
         updateStatus();
+        Intent serviceIntent = new Intent(this, JNIServiceForeground.class);
+        serviceIntent.putExtra(JNIServiceForeground.EXTRA_FROM_ACTIVITY, true);
+        startForegroundService(serviceIntent);
     }
 
     private void updateStatus() {
         List<String> missing = getMissingPermissions();
         StringBuilder sb = new StringBuilder();
         sb.append("jniservice is running.\n\n");
-        sb.append("Connect with:\n  jnicli --addr <device-ip>:50051 --insecure jni get-version\n\n");
+        sb.append("Connect with:\n  jnicli --profile <name> --addr <device-ip>:<configured-port> --authority jniservice jni get-version\n\n");
         if (missing.isEmpty()) {
             sb.append("All permissions granted.");
         } else {

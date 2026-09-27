@@ -21,7 +21,23 @@ jobs:
           go-version: "1.25.x"
 
       - name: Run unit tests
-        run: go test ./grpc/server/acl/ ./grpc/server/certauth/ ./mcp/ ./tools/...
+        run: go test ./adb/ ./startup/ ./grpc/server/startup/ ./grpc/server/acl/ ./grpc/server/certauth/ ./mcp/ ./tools/...
+
+  apk-policy:
+    name: APK foreground policy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.25.x"
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+      - uses: android-actions/setup-android@v3
+      - run: sdkmanager "platforms;android-36"
+      - run: go test ./tests/apk/
 
   vet:
     name: Vet
@@ -35,7 +51,7 @@ jobs:
 
       - name: Vet packages
         # handlestore requires CGO (imports jni core with JNI headers)
-        run: go vet ./grpc/server/acl/ ./grpc/server/certauth/ ./mcp/ ./tools/...
+        run: go vet ./adb/ ./startup/ ./grpc/server/startup/ ./grpc/server/acl/ ./grpc/server/certauth/ ./mcp/ ./tools/...
 
   build:
     name: Build binaries
@@ -75,4 +91,4 @@ jobs:
 
       - name: Lint
         # handlestore requires CGO (imports jni core with JNI headers)
-        run: golangci-lint run --timeout 10m --build-tags="" ./grpc/server/acl/ ./grpc/server/certauth/ ./mcp/ ./tools/... ./cmd/jnicli/ ./cmd/jnimcp/ ./cmd/jniserviceadmin/
+        run: golangci-lint run --timeout 10m --build-tags="" ./adb/ ./startup/ ./grpc/server/startup/ ./grpc/server/acl/ ./grpc/server/certauth/ ./mcp/ ./tools/... ./cmd/jnicli/ ./cmd/jnimcp/ ./cmd/jniserviceadmin/

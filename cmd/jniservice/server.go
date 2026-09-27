@@ -8,7 +8,8 @@
 // the Android system Context via ActivityThread reflection and starts
 // a gRPC server exposing all Android API services and the raw JNI surface.
 //
-// Configuration is via environment variables:
+// Listener configuration applies defaults, the selected jniservice.env data
+// file, the optional APK launch override file, then nonempty environment values:
 //
 //	JNISERVICE_PORT   TCP port (default "50051")
 //	JNISERVICE_LISTEN Listen address (default "127.0.0.1")
@@ -35,23 +36,34 @@ import (
 	"unsafe"
 
 	"github.com/AndroidGoLab/jni"
-	"github.com/AndroidGoLab/jni/app"
 	"github.com/AndroidGoLab/jni-proxy/grpc/server"
 	"github.com/AndroidGoLab/jni-proxy/grpc/server/acl"
 	"github.com/AndroidGoLab/jni-proxy/grpc/server/certauth"
 	jnirawserver "github.com/AndroidGoLab/jni-proxy/grpc/server/jni_raw"
 	"github.com/AndroidGoLab/jni-proxy/handlestore"
+	"github.com/AndroidGoLab/jni-proxy/internal/jniservicebindconfig"
 	authpb "github.com/AndroidGoLab/jni-proxy/proto/auth"
 	handlepb "github.com/AndroidGoLab/jni-proxy/proto/handlestore"
 	jnirawpb "github.com/AndroidGoLab/jni-proxy/proto/jni_raw"
+	"github.com/AndroidGoLab/jni/app"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
 )
 
 const (
-	maxGRPCMsgSize     = 128 * 1024 * 1024
-	serverCertValidity = 365 * 24 * time.Hour
+	maxGRPCMsgSize      = 128 * 1024 * 1024
+	serverCertValidity  = 365 * 24 * time.Hour
 	flagActivityNewTask = 0x10000000
+
+	// apkPrivateListenerConfigPath points to the bind config staged for the APK.
+	//
+	// Example: ActivityManager-launched APKs use this file when JNISERVICE_CONFIG is unset.
+	apkPrivateListenerConfigPath = "/data/data/center.dx.jni.jniservice/files/jniservice/jniservice.env"
+
+	// apkPrivateListenerLaunchConfigPath points to ephemeral APK listener overrides rewritten at launch.
+	//
+	// Example: a launch without explicit binds leaves this file empty to restore the durable settings.
+	apkPrivateListenerLaunchConfigPath = "/data/data/center.dx.jni.jniservice/files/jniservice/jniservice.launch.env"
 )
 
 // globalVM, globalHandles, and globalJNIServer are set during runServer so that
@@ -63,19 +75,43 @@ var (
 	globalJNIServer *jnirawserver.Server
 )
 
+// loadServiceBindConfig resolves the selected durable file, optional APK launch file, and listener environment.
+//
+// Example: APK mode combines jniservice.env, jniservice.launch.env, and process listener overrides.
+func loadServiceBindConfig() (jniservicebindconfig.Config, error) {
+	configPath := os.Getenv("JNISERVICE_CONFIG")
+	launchConfigPath := ""
+	if configPath == "" {
+		configPath = apkPrivateListenerConfigPath
+		launchConfigPath = apkPrivateListenerLaunchConfigPath
+	}
+	env := map[string]string{
+		"JNISERVICE_LAUNCH_CONFIG": launchConfigPath,
+		"JNISERVICE_LISTEN":        os.Getenv("JNISERVICE_LISTEN"),
+		"JNISERVICE_PORT":          os.Getenv("JNISERVICE_PORT"),
+	}
+	return jniservicebindconfig.Load(configPath, env)
+}
+
 // Java_center_dx_jni_jniservice_JNIServiceForeground_setAppContext is the JNI-mangled name
 // for center.dx.jni.jniservice.JNIServiceForeground.setAppContext(Object).
 //
+// Example: the APK marks native initialization successful only after this returns true.
+//
 //export Java_center_dx_jni_jniservice_JNIServiceForeground_setAppContext
-func Java_center_dx_jni_jniservice_JNIServiceForeground_setAppContext(cenv *C.JNIEnv, cls C.jclass, ctx C.jobject) {
+func Java_center_dx_jni_jniservice_JNIServiceForeground_setAppContext(
+	cenv *C.JNIEnv,
+	cls C.jclass,
+	ctx C.jobject,
+) C.jboolean {
 	// Called from Java after System.loadLibrary in APK mode.
 	// Stores the APK's Application context (with the correct ClassLoader
 	// and permissions) in the HandleStore.
 	if globalVM == nil || globalHandles == nil {
 		fmt.Fprintf(os.Stderr, "jniservice: setAppContext called before runServer\n")
-		return
+		return 0
 	}
-	globalVM.Do(func(goEnv *jni.Env) error {
+	err := globalVM.Do(func(goEnv *jni.Env) error {
 		// ctx is C.jobject from this package's CGO. jni.ObjectFromRef takes
 		// capi.Object (= C.jobject from capi's CGO). Both are C pointer types
 		// so unsafe conversion is safe.
@@ -92,17 +128,20 @@ func Java_center_dx_jni_jniservice_JNIServiceForeground_setAppContext(cenv *C.JN
 		ctxCls, err := goEnv.FindClass("android/content/Context")
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "jniservice: WARNING: can't find Context class: %v\n", err)
-			return nil
+			return err
 		}
 		getClMID, err := goEnv.GetMethodID(ctxCls, "getClassLoader", "()Ljava/lang/ClassLoader;")
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "jniservice: WARNING: can't find getClassLoader: %v\n", err)
-			return nil
+			return err
 		}
 		clObj, err := goEnv.CallObjectMethod(obj, getClMID)
-		if err != nil || clObj == nil || clObj.Ref() == 0 {
+		if err != nil {
 			fmt.Fprintf(os.Stderr, "jniservice: WARNING: getClassLoader failed: %v\n", err)
-			return nil
+			return fmt.Errorf("application ClassLoader unavailable: %w", err)
+		}
+		if clObj == nil || clObj.Ref() == 0 {
+			return fmt.Errorf("application ClassLoader is null")
 		}
 		clHandle := globalHandles.Put(goEnv, clObj)
 		if globalJNIServer != nil {
@@ -118,6 +157,11 @@ func Java_center_dx_jni_jniservice_JNIServiceForeground_setAppContext(cenv *C.JN
 
 		return nil
 	})
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "jniservice: application context initialization failed: %v\n", err)
+		return 0
+	}
+	return 1
 }
 
 //export runServer
@@ -131,15 +175,13 @@ func runServer(cvm *C.JavaVM) {
 		os.Stderr = logFile
 	}
 
-	listenAddr := os.Getenv("JNISERVICE_LISTEN")
-	if listenAddr == "" {
-		listenAddr = "127.0.0.1"
+	bindConfig, err := loadServiceBindConfig()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "jniservice: listener config failed: %v\n", err)
+		os.Exit(1)
 	}
-
-	port := os.Getenv("JNISERVICE_PORT")
-	if port == "" {
-		port = "50051"
-	}
+	listenAddr := bindConfig.Listen
+	port := bindConfig.Port
 
 	handles := handlestore.New()
 
@@ -252,6 +294,7 @@ func runServer(cvm *C.JavaVM) {
 		os.Exit(1)
 	}
 	fmt.Fprintf(os.Stderr, "jniservice: ACL store opened\n")
+	activeACL.Store(aclStore)
 
 	serverTLS, err := generateServerTLS(ca)
 	if err != nil {
@@ -302,6 +345,7 @@ func runServer(cvm *C.JavaVM) {
 	fmt.Fprintf(os.Stderr, "jniservice: mTLS enabled\n")
 
 	grpcServer := grpc.NewServer(opts...)
+	registerStartup(grpcServer, dataDir)
 
 	// Create app.Context from the Android Context stored in HandleStore.
 	var appCtx *app.Context
@@ -396,8 +440,8 @@ func generateServerTLS(ca *certauth.CA) (tls.Certificate, error) {
 		NotAfter:     now.Add(serverCertValidity),
 		KeyUsage:     x509.KeyUsageDigitalSignature,
 		ExtKeyUsage:  []x509.ExtKeyUsage{x509.ExtKeyUsageServerAuth},
-		// SANs so clients can verify the server cert when connecting via
-		// localhost, 127.0.0.1, or 0.0.0.0 (common for adb port-forward).
+		// Keep a stable service name for TLS verification while clients dial
+		// the phone's configured IPv4 address over the LAN.
 		DNSNames:    []string{"localhost", "jniservice"},
 		IPAddresses: []net.IP{net.IPv4(127, 0, 0, 1), net.IPv4(0, 0, 0, 0), net.IPv6loopback},
 	}
@@ -424,8 +468,8 @@ func generateServerTLS(ca *certauth.CA) (tls.Certificate, error) {
 // Two modes:
 //   - APK mode: an ActivityThread already exists (the app framework created it).
 //     Use currentActivityThread().getApplication() to get the app's Context.
-//   - app_process mode: no ActivityThread exists. Create one via Looper.prepare()
-//     + ActivityThread.systemMain(), then use getSystemContext().
+//   - app_process mode: create an ActivityThread via Looper.prepare() and
+//     ActivityThread.systemMain(), then use getSystemContext().
 func initAndroidContext(vm *jni.VM, handles *handlestore.HandleStore) int64 {
 	// Pin to OS thread so Looper/ActivityThread calls run on the same thread.
 	runtime.LockOSThread()

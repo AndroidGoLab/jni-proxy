@@ -1,10 +1,10 @@
 # E2E gRPC tests for jnicli against jniservice on Android.
 #
 # Usage:
-#   make -C tests/e2e-grpc test      # Full pipeline: build, push, start, forward, test, stop
-#   make -C tests/e2e-grpc test-go   # Run Go tests only (server must be running + forwarded)
-#   make -C tests/e2e-grpc test-sh   # Run shell tests only (server must be running + forwarded)
-#   make -C tests/e2e-grpc deploy    # Build, push, start server, set up port forwarding
+#   make -C tests/e2e-grpc test JNISERVICE_LISTEN=192.168.1.20
+#   make -C tests/e2e-grpc test-go JNISERVICE_LISTEN=192.168.1.20
+#   make -C tests/e2e-grpc test-sh JNISERVICE_LISTEN=192.168.1.20
+#   make -C tests/e2e-grpc deploy JNISERVICE_LISTEN=192.168.1.20
 
 ANDROID_SDK ?= $(HOME)/Android/Sdk
 NDK ?= $(shell ls -d $(ANDROID_SDK)/ndk/* 2>/dev/null | sort -V | tail -1)
@@ -16,7 +16,6 @@ ARCH ?= $(shell $(ADB) shell getprop ro.product.cpu.abi 2>/dev/null)
 REMOTE_DIR := /data/adb/jniservice
 REMOTE_ACL_DB ?= $(REMOTE_DIR)/jniservice/acl.db
 PORT ?= 50051
-HOST_PORT ?= $(PORT)
 
 ifeq ($(ARCH),arm64-v8a)
   GOARCH := arm64
@@ -27,7 +26,7 @@ else
 endif
 
 .PHONY: build build-host build-android build-admin push push-admin deploy \
-	start-server stop-server forward test test-go test-sh clean
+	start-server stop-server require-listen test test-go test-sh clean
 
 # Build host + android binaries.
 build: build-host build-android
@@ -74,12 +73,23 @@ push-admin: build-admin
 	$(ADB) push build/jniserviceadmin $(REMOTE_DIR)/jniserviceadmin
 	$(ADB) shell chmod +x $(REMOTE_DIR)/jniserviceadmin
 
-# Deploy = push + start + forward. Ready for testing.
-deploy: push start-server forward
+# Deploy and start the service on this phone's configured Wi-Fi address.
+deploy: require-listen
+	$(MAKE) push
+	$(MAKE) start-server
+
+# Require a concrete per-phone listener address for host-to-phone LAN access.
+require-listen:
+	@test -n "$(JNISERVICE_LISTEN)" || { \
+		echo "JNISERVICE_LISTEN must be set to this phone's current Wi-Fi IPv4 address"; \
+		exit 2; \
+	}
 
 # Start the gRPC server on the device (kills any old instance first).
-start-server: stop-server
-	$(ADB) shell "JNISERVICE_PORT=$(PORT) \
+start-server: require-listen
+	$(MAKE) stop-server
+	$(ADB) shell "JNISERVICE_LISTEN='$(JNISERVICE_LISTEN)' \
+		JNISERVICE_PORT='$(PORT)' \
 		JNISERVICE_DATA_DIR=$(REMOTE_DIR)/data \
 		LD_LIBRARY_PATH=$(REMOTE_DIR) \
 		app_process \
@@ -102,30 +112,24 @@ stop-server:
 	-@$(ADB) shell "pkill -f JNIService" 2>/dev/null || true
 	@sleep 1
 
-# Set up adb port forwarding so host can reach the server.
-# Use HOST_PORT if port $(PORT) is already in use on the host.
-forward:
-	$(ADB) forward tcp:$(HOST_PORT) tcp:$(PORT)
-	@echo "Port forwarding: localhost:$(HOST_PORT) -> device:$(PORT)"
-
 # Full E2E test pipeline: build, deploy, test, clean up.
-test: build push push-admin start-server forward test-go
+test: require-listen build push push-admin start-server test-go
 	@$(MAKE) stop-server
 
-# Run Go E2E tests (requires server running + port forwarded).
+# Run Go E2E tests against the phone's direct-LAN address.
 # Uses ADB mode: jniserviceadmin runs on the device via "adb shell"
 # to grant permissions in the device-side ACL database.
-test-go: build-host
-	JNICTL_E2E_ADDR=localhost:$(HOST_PORT) \
+test-go: build-host require-listen
+	JNICTL_E2E_ADDR=$(JNISERVICE_LISTEN):$(PORT) \
 	JNICTL_BIN=$$(pwd)/build/jnicli-host \
 	JNISERVICEADMIN_ADB_BIN=$(REMOTE_DIR)/jniserviceadmin \
 	JNISERVICE_DB=$(REMOTE_ACL_DB) \
 	ADB=$(ADB) \
 		go test -v -run TestE2E ./
 
-# Run shell-based E2E tests (requires server running + port forwarded).
-test-sh: build-host
-	JNICTL_E2E_ADDR=localhost:$(HOST_PORT) JNICTL_BIN=$$(pwd)/build/jnicli-host \
+# Run shell-based E2E tests against the phone's direct-LAN address.
+test-sh: build-host require-listen
+	JNICTL_E2E_ADDR=$(JNISERVICE_LISTEN):$(PORT) JNICTL_BIN=$$(pwd)/build/jnicli-host \
 		./run_e2e.sh
 
 clean:

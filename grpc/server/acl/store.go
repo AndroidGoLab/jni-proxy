@@ -385,13 +385,23 @@ func (s *Store) ApproveRequest(
 }
 
 // DenyRequest marks the request as 'denied' without creating any grants.
+// A missing or already decided request returns an error wrapping sql.ErrNoRows.
+//
+// Example: denying an approved request preserves its existing grants and reports no pending row.
 func (s *Store) DenyRequest(requestID int64) error {
-	_, err := s.db.Exec(
+	result, err := s.db.Exec(
 		`UPDATE pending_requests SET status = 'denied' WHERE id = ? AND status = 'pending'`,
 		requestID,
 	)
 	if err != nil {
 		return fmt.Errorf("denying request %d: %w", requestID, err)
+	}
+	count, err := result.RowsAffected()
+	if err != nil {
+		return fmt.Errorf("checking denied request %d: %w", requestID, err)
+	}
+	if count != 1 {
+		return fmt.Errorf("no pending request %d: %w", requestID, sql.ErrNoRows)
 	}
 	return nil
 }

@@ -5227,8 +5227,9 @@ func (*GetAppContextRequest) Descriptor() ([]byte, []int) {
 }
 
 type GetAppContextResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	ContextHandle int64                  `protobuf:"varint,1,opt,name=context_handle,json=contextHandle,proto3" json:"context_handle,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Caller-owned global reference handle; release with DeleteGlobalRef.
+	ContextHandle int64 `protobuf:"varint,1,opt,name=context_handle,json=contextHandle,proto3" json:"context_handle,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }

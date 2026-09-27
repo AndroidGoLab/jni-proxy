@@ -3,11 +3,12 @@ package main
 import (
 	"fmt"
 	"os"
+	"path/filepath"
 	"strings"
 
-	"github.com/spf13/cobra"
 	"github.com/AndroidGoLab/jni-proxy/grpc/server/certauth"
 	authpb "github.com/AndroidGoLab/jni-proxy/proto/auth"
+	"github.com/spf13/cobra"
 )
 
 var authCmd = &cobra.Command{
@@ -40,6 +41,27 @@ var authRegisterCmd = &cobra.Command{
 		caOut, err := cmd.Flags().GetString("ca-out")
 		if err != nil {
 			return fmt.Errorf("reading --ca-out flag: %w", err)
+		}
+
+		defaultPaths, err := persistentCredentialPaths(flagProfile)
+		if err != nil {
+			return err
+		}
+		if keyOut == "" {
+			keyOut = defaultPaths.key
+		}
+		if certOut == "" {
+			certOut = defaultPaths.cert
+		}
+		if caOut == "" {
+			caOut = defaultPaths.ca
+		}
+		for _, path := range []string{keyOut, certOut, caOut} {
+			if dir := filepath.Dir(path); dir != "." {
+				if err := os.MkdirAll(dir, 0700); err != nil {
+					return fmt.Errorf("creating credential directory %s: %w", dir, err)
+				}
+			}
 		}
 
 		csrPEM, keyPEM, err := certauth.GenerateCSR(cn)
@@ -123,9 +145,9 @@ var authListPermissionsCmd = &cobra.Command{
 
 func init() {
 	authRegisterCmd.Flags().String("cn", "", "common name for the client certificate (required)")
-	authRegisterCmd.Flags().String("key-out", "client.key", "path to write the private key")
-	authRegisterCmd.Flags().String("cert-out", "client.crt", "path to write the signed certificate")
-	authRegisterCmd.Flags().String("ca-out", "ca.crt", "path to write the CA certificate")
+	authRegisterCmd.Flags().String("key-out", "", "path to write the private key (default: ~/.jnicli[/PROFILE]/client.key)")
+	authRegisterCmd.Flags().String("cert-out", "", "path to write the signed certificate (default: ~/.jnicli[/PROFILE]/client.crt)")
+	authRegisterCmd.Flags().String("ca-out", "", "path to write the CA certificate (default: ~/.jnicli[/PROFILE]/ca.crt)")
 
 	authRequestPermissionCmd.Flags().String("methods", "", "comma-separated gRPC method patterns to request")
 

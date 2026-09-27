@@ -23,8 +23,8 @@ type Server struct {
 	VM      *jni.VM
 	Handles *handlestore.HandleStore
 	// AppContextHandle is the HandleStore handle for the Android
-	// application Context. Set during server startup so clients can
-	// retrieve it via the GetAppContext RPC instead of guessing.
+	// application Context owned by the service. GetAppContext returns
+	// caller-owned handles derived from this service-owned reference.
 	AppContextHandle int64
 	// AppClassLoader is an optional handle to the APK's ClassLoader.
 	// When set, FindClass falls back to ClassLoader.loadClass() if the
@@ -135,11 +135,57 @@ func (s *Server) GetVersion(_ context.Context, _ *pb.GetVersionRequest) (*pb.Get
 
 // ---- App Context ----
 
+type objectHandleGetter func(handle int64) *jni.Object
+
+type objectHandleCreator func(obj *jni.Object) (int64, error)
+
+func callerOwnedAppContextHandle(
+	appContextHandle int64,
+	get objectHandleGetter,
+	create objectHandleCreator,
+) (int64, error) {
+	if appContextHandle == 0 {
+		return 0, status.Error(codes.FailedPrecondition, "app context not available")
+	}
+	if get == nil {
+		return 0, status.Error(codes.FailedPrecondition, "handle store not available")
+	}
+	if create == nil {
+		return 0, status.Error(codes.FailedPrecondition, "handle creator not available")
+	}
+	obj := get(appContextHandle)
+	if obj == nil {
+		return 0, status.Errorf(codes.NotFound, "app context handle %d not found", appContextHandle)
+	}
+	return create(obj)
+}
+
+// GetAppContext returns a fresh caller-owned global reference handle for the
+// Android application Context. Callers should release it with DeleteGlobalRef.
 func (s *Server) GetAppContext(_ context.Context, _ *pb.GetAppContextRequest) (*pb.GetAppContextResponse, error) {
 	if s.AppContextHandle == 0 {
-		return nil, status.Errorf(codes.FailedPrecondition, "app context not available")
+		return nil, status.Error(codes.FailedPrecondition, "app context not available")
 	}
-	return &pb.GetAppContextResponse{ContextHandle: s.AppContextHandle}, nil
+	if s.Handles == nil {
+		return nil, status.Error(codes.FailedPrecondition, "handle store not available")
+	}
+	handle, err := callerOwnedAppContextHandle(s.AppContextHandle, s.Handles.Get, func(obj *jni.Object) (int64, error) {
+		if s.VM == nil {
+			return 0, status.Error(codes.FailedPrecondition, "JNI VM not available")
+		}
+		var handle int64
+		if err := s.withEnv(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, obj)
+			return nil
+		}); err != nil {
+			return 0, status.Errorf(codes.Internal, "GetAppContext: %v", err)
+		}
+		return handle, nil
+	})
+	if err != nil {
+		return nil, err
+	}
+	return &pb.GetAppContextResponse{ContextHandle: handle}, nil
 }
 
 // ---- Class ----
@@ -344,6 +390,28 @@ func (s *Server) GetObjectRefType(_ context.Context, req *pb.GetObjectRefTypeReq
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.GetObjectRefTypeResponse{RefType: refType}, nil
+}
+
+func (s *Server) DeleteGlobalRef(_ context.Context, req *pb.DeleteGlobalRefRequest) (*pb.DeleteGlobalRefResponse, error) {
+	handle := req.GetRefHandle()
+	if handle == 0 {
+		return &pb.DeleteGlobalRefResponse{}, nil
+	}
+	if s.VM == nil {
+		return nil, status.Error(codes.FailedPrecondition, "JNI VM is not available")
+	}
+	if s.Handles == nil {
+		return nil, status.Error(codes.FailedPrecondition, "handle store is not available")
+	}
+
+	if err := s.withEnv(func(env *jni.Env) error {
+		s.Handles.Release(env, handle)
+		return nil
+	}); err != nil {
+		return nil, status.Errorf(codes.Internal, "DeleteGlobalRef: %v", err)
+	}
+
+	return &pb.DeleteGlobalRefResponse{}, nil
 }
 
 // ---- Method/Field ID lookup ----

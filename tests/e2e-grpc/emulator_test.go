@@ -13,11 +13,11 @@ import (
 )
 
 // These tests require a running jniservice on an Android device or emulator.
-// Set JNICTL_E2E_ADDR=<host:port> to enable them.
+// Set JNICTL_E2E_ADDR to the phone's direct-LAN IPv4 address and port to enable them.
 // Optionally set JNICTL_BIN to the path of a pre-built jnicli binary.
 //
 // Run with:
-//   JNICTL_E2E_ADDR=localhost:50051 go test -v -count=1 -run TestE2E ./
+//   JNICTL_E2E_ADDR=PHONE_IPV4:50051 go test -v -count=1 -run TestE2E ./
 
 func skipIfNoEmulator(t *testing.T) {
 	t.Helper()

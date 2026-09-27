@@ -74,14 +74,6 @@ flowchart LR
 
 jniservice is a gRPC server that exposes the JNI surface and Android APIs over the network.
 
-### Development (via adb)
-
-```bash
-make deploy                    # build, push, start, forward port
-make deploy HOST_PORT=50052    # use different host port
-make stop-server               # stop the server
-```
-
 ### Rooted devices (Magisk module)
 
 Auto-starts on boot.
@@ -97,12 +89,28 @@ Configuration (optional): create `/data/adb/modules/jniservice/jniservice.env`:
 
 ```bash
 JNISERVICE_PORT=50051
-JNISERVICE_LISTEN=0.0.0.0
+# Use this device's current Wi-Fi address.
+JNISERVICE_LISTEN=192.168.1.20
 ```
+
+In Magisk app-process mode, the launcher passes the selected file path to
+`app_process` as `JNISERVICE_CONFIG`; it is parsed as `KEY=VALUE` data, not
+sourced as shell code. For APK mode, the selected durable file is staged as
+`jniservice.env` at the package-private path described below. Nonempty listener
+environment overrides are rebuilt separately in `jniservice.launch.env` on
+every launch; an empty file clears prior transient overrides without changing
+the durable file. The APK resolves defaults, durable file, staged launch file,
+then nonempty process environment values. `app_process` resolves defaults,
+selected file, then its nonempty process environment. Only
+`JNISERVICE_LISTEN` and `JNISERVICE_PORT` are read from these files;
+`JNISERVICE_DATA_DIR` remains environment-only. The default is
+`127.0.0.1:50051`; unspecified addresses such as `0.0.0.0` and `::` are
+rejected. Bind to the phone's current Wi-Fi IPv4 address for direct-LAN access.
+The listener reads its settings when the app process starts.
 
 ### Non-rooted devices (APK)
 
-Auto-starts on boot via foreground service.
+Auto-starts after the first unlock following boot via a foreground service.
 
 ```bash
 make apk DIST_GOARCH=arm64          # build APK
@@ -111,20 +119,70 @@ adb install build/jniservice-arm64-v8a.apk
 
 Open "jniservice" from the launcher once to start the service and register the boot receiver.
 
+The APK reads `jniservice.env` from
+`/data/data/center.dx.jni.jniservice/files/jniservice/jniservice.env`. A
+registered, already-approved `jnicli` identity with permission to use the raw
+JNI API can write this private file through the existing authenticated API:
+use `java.io.FileWriter` for the path above and write the `KEY=VALUE` lines.
+That operation needs permission for the raw JNI `FindClass`, `NewStringUTF`,
+`GetMethodID`, `NewObject`, and `CallMethod` RPCs.
+The raw JNI calls use the normal mTLS identity and service ACL; `jniserviceadmin`
+continues to manage permissions, and no separate listener-settings RPC is
+provided. After editing the file, restart the app process so the native
+listener reloads it; restarting only the foreground service in an already
+running process does not reload the native library. For example:
+
+```bash
+adb shell am force-stop center.dx.jni.jniservice
+adb shell am start -n center.dx.jni.jniservice/.JNIServiceActivity
+```
+
+A missing optional file leaves the defaults in effect, while a malformed or
+unreadable file prevents startup rather than silently binding somewhere else.
+
+The optional [phone-local fixed-performance startup action](docs/fixed-performance-startup.md)
+can re-enable fixed-performance mode after unlock and connection to trusted Wi-Fi,
+using a dedicated paired wireless-ADB identity. It is disabled until configured.
+
 ### Connecting
 
-On the device itself:
+`jnicli` keeps client credentials in `~/.jnicli` by default. Use `--profile NAME`
+for separate devices; this loads `~/.jnicli/NAME/{client.crt,client.key,ca.crt}`.
+The `localhost:50051` examples below require jniservice to listen on loopback
+(the default); if `JNISERVICE_LISTEN` is set to the phone's Wi-Fi IPv4 address,
+phone-local calls must use that address too.
+Phone-local invocation example (run `jnicli` on the phone); hosts should use the
+phone-IP direct-LAN example below:
+
+```bash
+jnicli --profile pixel8pro --addr localhost:50051 auth list-permissions
+```
+
+`auth register --profile NAME --insecure --cn NAME` writes the three files to
+that profile when the output flags are omitted. Explicit `--cert`, `--key`, and
+`--ca` paths always override the defaults.
+
+For direct-LAN access, dial the phone's current Wi-Fi address and configured
+port while verifying the server certificate for `jniservice`:
+
+```bash
+jnicli --profile pixel8pro --addr 192.168.0.242:50051 \
+  --authority jniservice camera photo --index 0 --output photo.jpg
+```
+
+Replace the address and port with the values configured on the phone. This
+uses the profile's mTLS credentials and keeps TLS certificate verification
+enabled; do not add `--insecure`.
+
+Phone-local invocation example (run this on the device); hosts should use the
+phone-IP direct-LAN example above:
 
 ```bash
 jnicli --addr localhost:50051 --insecure jni get-version
 ```
 
-From another machine (via adb port forwarding):
-
-```bash
-adb forward tcp:50051 tcp:50051
-jnicli --addr localhost:50051 --insecure jni get-version
-```
+For headless JPEG capture, including AE warm-up, flash, ISO, and exposure
+controls, see [camera photo controls](docs/camera-photo.md).
 
 ## E2E Test Verification
 
@@ -145,9 +203,6 @@ Run `make test-emulator` to test against a connected device or emulator. Tests s
 ```bash
 # Build the CLI for Linux
 make dist-jnicli-linux
-
-# Build and deploy to a connected Android device
-make deploy
 
 # Run E2E tests
 make test-emulator

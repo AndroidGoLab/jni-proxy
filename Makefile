@@ -1,6 +1,6 @@
 .PHONY: generate callbacks proto protoc grpc cli clean lint test test-tools test-e2e test-emulator \
 	build build-server list-commands dist dist-jnicli-linux dist-jnicli-android dist-jnimcp-linux dist-jnimcp-android dist-jniserviceadmin dist-jniservice dist-dex \
-	magisk apk deploy push start-server stop-server forward
+	magisk apk deploy push start-server stop-server require-listen
 
 # Path to the jni repo checkout (sibling directory by default).
 JNI_DIR ?= ../jni
@@ -98,10 +98,11 @@ endif
 # ---- Device deployment ----
 ADB ?= $(ANDROID_SDK)/platform-tools/adb
 PORT ?= 50051
-HOST_PORT ?= $(PORT)
 REMOTE_DIR := /data/adb/jniservice
 
-deploy: push start-server forward
+deploy: require-listen
+	$(MAKE) push
+	$(MAKE) start-server
 
 push:
 	@ARCH=$${DEVICE_ARCH:-$$($(ADB) shell getprop ro.product.cpu.abi)}; \
@@ -115,8 +116,16 @@ push:
 	$(ADB) push build/libjniservice-$$ABI.so $(REMOTE_DIR)/libjniservice.so && \
 	$(ADB) push build/classes.dex $(REMOTE_DIR)/jniservice.dex
 
-start-server: stop-server
-	$(ADB) shell "JNISERVICE_PORT=$(PORT) \
+require-listen:
+	@test -n "$(JNISERVICE_LISTEN)" || { \
+		echo "JNISERVICE_LISTEN must be set to this phone's current Wi-Fi IPv4 address"; \
+		exit 2; \
+	}
+
+start-server: require-listen
+	$(MAKE) stop-server
+	$(ADB) shell "JNISERVICE_LISTEN='$(JNISERVICE_LISTEN)' \
+		JNISERVICE_PORT='$(PORT)' \
 		JNISERVICE_DATA_DIR=$(REMOTE_DIR)/data \
 		LD_LIBRARY_PATH=$(REMOTE_DIR) \
 		app_process \
@@ -137,10 +146,6 @@ start-server: stop-server
 stop-server:
 	-@$(ADB) shell "pkill -f JNIService" 2>/dev/null || true
 	@sleep 1
-
-forward:
-	$(ADB) forward tcp:$(HOST_PORT) tcp:$(PORT)
-	@echo "Port forwarding: localhost:$(HOST_PORT) -> device:$(PORT)"
 
 # ---- Tests ----
 

@@ -5,8 +5,6 @@ import (
 	"fmt"
 	"io"
 	"strings"
-	"sync"
-	"sync/atomic"
 	"unsafe"
 
 	"github.com/AndroidGoLab/jni"
@@ -41,114 +39,15 @@ func (s *Server) Proxy(stream pb.JNIService_ProxyServer) error {
 		ifaces[i] = cls
 	}
 
-	// 3. Pending callbacks: map callback_id -> response channel.
-	var (
-		pendingMu sync.Mutex
-		pending   = map[int64]chan *pb.CallbackResponse{}
-		nextID    atomic.Int64
-	)
+	// 3. Callback forwarding state. stream.Send may be called concurrently
+	// from multiple JVM callback threads, and response-requiring callbacks need
+	// a pending callback_id -> response channel map.
+	forwarder := newProxyCallbackForwarder(s.Handles, stream)
 
-	// 4. Mutex protecting stream.Send, which may be called concurrently
-	// from multiple JVM callback threads.
-	var sendMu sync.Mutex
-
-	// 5. Cache for void return type detection (used only for interface proxies).
+	// 4. Cache for void return type detection (used only for interface proxies).
 	var detector voidDetector
 
-	// sendCallback is the shared logic for forwarding a Java callback over the
-	// gRPC stream to the client. It blocks until the client responds (for
-	// non-void methods) or fires-and-forgets (for void methods).
-	// The expectsResponse parameter tells the caller whether the method returns
-	// a value; for abstract class adapters (which don't pass a Method object)
-	// we always expect a response and let the client decide.
-	sendCallback := func(
-		env *jni.Env,
-		methodName string,
-		args []*jni.Object,
-		expectsResponse bool,
-	) (*jni.Object, error) {
-		callbackID := nextID.Add(1)
-
-		// Store args in HandleStore so client can reference them.
-		argHandles := make([]int64, len(args))
-		for i, arg := range args {
-			if arg != nil && arg.Ref() != 0 {
-				argHandles[i] = s.Handles.Put(env, arg)
-			}
-		}
-
-		// NOTE: callback argument handles are NOT released here.
-		// The client is responsible for releasing them via the
-		// HandleStoreService.ReleaseHandle RPC when done. Releasing
-		// them here would invalidate the handles (e.g. CameraDevice)
-		// before the client has a chance to use them.
-
-		// Send callback event to client.
-		event := &pb.ProxyServerMessage{
-			Msg: &pb.ProxyServerMessage_Callback{
-				Callback: &pb.CallbackEvent{
-					CallbackId:      callbackID,
-					MethodName:      methodName,
-					ArgHandles:      argHandles,
-					ExpectsResponse: expectsResponse,
-				},
-			},
-		}
-
-		// Register the response channel BEFORE sending the event to avoid
-		// a race where the receive loop dispatches the response before the
-		// channel is in the map.
-		var ch chan *pb.CallbackResponse
-		if expectsResponse {
-			ch = make(chan *pb.CallbackResponse, 1)
-			pendingMu.Lock()
-			pending[callbackID] = ch
-			pendingMu.Unlock()
-		}
-
-		var sendErr error
-		func() {
-			sendMu.Lock()
-			defer sendMu.Unlock()
-			sendErr = stream.Send(event)
-		}()
-		if sendErr != nil {
-			if ch != nil {
-				pendingMu.Lock()
-				delete(pending, callbackID)
-				pendingMu.Unlock()
-			}
-			return nil, fmt.Errorf("sending callback event: %w", sendErr)
-		}
-
-		// If void, fire-and-forget.
-		if !expectsResponse {
-			return nil, nil
-		}
-
-		defer func() {
-			pendingMu.Lock()
-			delete(pending, callbackID)
-			pendingMu.Unlock()
-		}()
-
-		resp, ok := <-ch
-		if !ok {
-			return nil, fmt.Errorf("stream closed while waiting for callback response")
-		}
-
-		if resp.GetError() != "" {
-			return nil, fmt.Errorf("client error: %s", resp.GetError())
-		}
-
-		resultHandle := resp.GetResultHandle()
-		if resultHandle == 0 {
-			return nil, nil
-		}
-		return s.Handles.Get(resultHandle), nil
-	}
-
-	// 6. Determine whether the first class is an interface or an abstract class,
+	// 5. Determine whether the first class is an interface or an abstract class,
 	// then create the proxy object using the appropriate mechanism.
 	var (
 		proxyObj     *jni.Object
@@ -184,7 +83,7 @@ func (s *Server) Proxy(stream pb.JNIService_ProxyServer) error {
 			proxyObj, proxyCleanup, createErr = env.NewProxyFull(ifaces,
 				func(env *jni.Env, method *jni.Object, methodName string, args []*jni.Object) (*jni.Object, error) {
 					expectsResponse := !detector.isVoid(env, method)
-					return sendCallback(env, methodName, args, expectsResponse)
+					return forwarder.sendCallback(env, methodName, args, expectsResponse)
 				},
 			)
 			if createErr != nil {
@@ -211,10 +110,9 @@ func (s *Server) Proxy(stream pb.JNIService_ProxyServer) error {
 		// and instantiate it with the handler ID.
 		handlerID := jni.RegisterProxyHandler(
 			func(env *jni.Env, methodName string, args []*jni.Object) (*jni.Object, error) {
-				// Abstract class adapters don't pass a Method object, so we
-				// cannot detect void return type. Always expect a response and
-				// let the client return a null handle for void methods.
-				return sendCallback(env, methodName, args, true)
+				// callbackgen currently generates only void abstract adapter
+				// methods, so these lifecycle callbacks are fire-and-forget.
+				return forwarder.sendCallback(env, methodName, args, false)
 			},
 		)
 
@@ -295,21 +193,14 @@ func (s *Server) Proxy(stream pb.JNIService_ProxyServer) error {
 	// Close all pending callback channels when the stream ends so that
 	// blocked callback goroutines do not deadlock.
 	defer func() {
-		pendingMu.Lock()
-		for id, ch := range pending {
-			close(ch)
-			delete(pending, id)
-		}
-		pendingMu.Unlock()
+		forwarder.closePending()
 	}()
 
-	// 7. proxyHandle was set inside the VM.Do callbacks above (local JNI
+	// 6. proxyHandle was set inside the VM.Do callbacks above (local JNI
 	// refs are thread-local — must be stored before VM.Do returns).
 
 	err = func() error {
-		sendMu.Lock()
-		defer sendMu.Unlock()
-		return stream.Send(&pb.ProxyServerMessage{
+		return forwarder.send(&pb.ProxyServerMessage{
 			Msg: &pb.ProxyServerMessage_Created{
 				Created: &pb.CreateProxyResponse{
 					ProxyHandle: proxyHandle,
@@ -321,7 +212,7 @@ func (s *Server) Proxy(stream pb.JNIService_ProxyServer) error {
 		return err
 	}
 
-	// 8. Receive loop: read CallbackResponse messages and dispatch.
+	// 7. Receive loop: read CallbackResponse messages and dispatch.
 	for {
 		msg, recvErr := stream.Recv()
 		if errors.Is(recvErr, io.EOF) {
@@ -335,14 +226,7 @@ func (s *Server) Proxy(stream pb.JNIService_ProxyServer) error {
 		if resp == nil {
 			continue
 		}
-
-		pendingMu.Lock()
-		ch, ok := pending[resp.GetCallbackId()]
-		pendingMu.Unlock()
-
-		if ok {
-			ch <- resp
-		}
+		forwarder.receiveResponse(resp)
 	}
 }
 

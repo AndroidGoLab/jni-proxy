@@ -151,7 +151,8 @@ type JNIServiceClient interface {
 	FromReflectedField(ctx context.Context, in *FromReflectedFieldRequest, opts ...grpc.CallOption) (*FromReflectedFieldResponse, error)
 	ToReflectedMethod(ctx context.Context, in *ToReflectedMethodRequest, opts ...grpc.CallOption) (*ToReflectedMethodResponse, error)
 	ToReflectedField(ctx context.Context, in *ToReflectedFieldRequest, opts ...grpc.CallOption) (*ToReflectedFieldResponse, error)
-	// Returns the handle to the Android application Context.
+	// Returns a caller-owned handle to the Android application Context.
+	// The caller should release the returned handle with DeleteGlobalRef.
 	GetAppContext(ctx context.Context, in *GetAppContextRequest, opts ...grpc.CallOption) (*GetAppContextResponse, error)
 	// Bidirectional stream for creating Java interface proxies with remote callbacks.
 	Proxy(ctx context.Context, opts ...grpc.CallOption) (grpc.BidiStreamingClient[ProxyClientMessage, ProxyServerMessage], error)
@@ -793,7 +794,8 @@ type JNIServiceServer interface {
 	FromReflectedField(context.Context, *FromReflectedFieldRequest) (*FromReflectedFieldResponse, error)
 	ToReflectedMethod(context.Context, *ToReflectedMethodRequest) (*ToReflectedMethodResponse, error)
 	ToReflectedField(context.Context, *ToReflectedFieldRequest) (*ToReflectedFieldResponse, error)
-	// Returns the handle to the Android application Context.
+	// Returns a caller-owned handle to the Android application Context.
+	// The caller should release the returned handle with DeleteGlobalRef.
 	GetAppContext(context.Context, *GetAppContextRequest) (*GetAppContextResponse, error)
 	// Bidirectional stream for creating Java interface proxies with remote callbacks.
 	Proxy(grpc.BidiStreamingServer[ProxyClientMessage, ProxyServerMessage]) error

@@ -1,12 +1,54 @@
 package acl
 
 import (
+	"database/sql"
 	"path/filepath"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
+
+// TestStoreDecisionsAreFinal verifies no-op decisions fail without changing grants or registrations.
+//
+// Example: denying an already approved request returns sql.ErrNoRows and preserves its grant.
+func TestStoreDecisionsAreFinal(t *testing.T) {
+	path := filepath.Join(t.TempDir(), "acl.db")
+	store, err := OpenStore(path)
+	require.NoError(t, err)
+	require.NoError(t, store.RegisterClient("client", "certificate", "fingerprint"))
+	require.NoError(t, store.Grant("client", "/existing.Service/Read", "prior"))
+	request, err := store.CreateRequest("client", []string{"/startup.StartupService/GetStatus"})
+	require.NoError(t, err)
+	require.NoError(t, store.ApproveRequest(request, "ui"))
+	require.ErrorIs(t, store.DenyRequest(request), sql.ErrNoRows)
+	require.ErrorIs(t, store.ApproveRequest(request, "ui"), sql.ErrNoRows)
+	denied, err := store.CreateRequest("client", []string{"/startup.StartupService/Configure"})
+	require.NoError(t, err)
+	require.NoError(t, store.DenyRequest(denied))
+	require.ErrorIs(t, store.DenyRequest(denied), sql.ErrNoRows)
+	require.ErrorIs(t, store.ApproveRequest(denied, "ui"), sql.ErrNoRows)
+	require.ErrorIs(t, store.DenyRequest(denied+100), sql.ErrNoRows)
+	for iteration := 0; iteration < 2; iteration++ {
+		for _, method := range []string{"/existing.Service/Read", "/startup.StartupService/GetStatus"} {
+			allowed, err := store.IsMethodAllowed("client", method)
+			require.NoError(t, err)
+			require.True(t, allowed)
+		}
+		allowed, err := store.IsMethodAllowed("client", "/startup.StartupService/Configure")
+		require.NoError(t, err)
+		require.False(t, allowed)
+		clients, err := store.ListClients()
+		require.NoError(t, err)
+		require.Len(t, clients, 1)
+		require.Equal(t, "certificate", clients[0].CertPEM)
+		require.NoError(t, store.Close())
+		if iteration == 0 {
+			store, err = OpenStore(path)
+			require.NoError(t, err)
+		}
+	}
+}
 
 func openTestStore(t *testing.T) *Store {
 	t.Helper()

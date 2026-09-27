@@ -92,7 +92,10 @@
         <service
             android:name=".JNIServiceForeground"
             android:exported="false"
-            android:foregroundServiceType="camera|microphone|location|specialUse" />
+            android:foregroundServiceType="camera|microphone|location|specialUse">
+            <property android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="User-controlled Android API server and startup actions" />
+        </service>
 
         <receiver
             android:name=".BootReceiver"

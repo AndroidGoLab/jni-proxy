@@ -2,16 +2,16 @@
 # Shell-based E2E test runner for jnicli against a running jniservice.
 #
 # Prerequisites:
-#   - JNICTL_E2E_ADDR set to the server address (e.g. localhost:50051)
+#   - JNICTL_E2E_ADDR set to the phone's direct-LAN IPv4 address and port
 #   - JNICTL_BIN set to the path of the jnicli binary (or jnicli in PATH)
 #   - jq installed for JSON parsing
 #
 # Usage:
-#   JNICTL_E2E_ADDR=localhost:50051 JNICTL_BIN=./build/jnicli-host ./run_e2e.sh
+#   JNICTL_E2E_ADDR=PHONE_IPV4:50051 JNICTL_BIN=./build/jnicli-host ./run_e2e.sh
 
 set -euo pipefail
 
-: "${JNICTL_E2E_ADDR:?JNICTL_E2E_ADDR must be set (e.g. localhost:50051)}"
+: "${JNICTL_E2E_ADDR:?JNICTL_E2E_ADDR must be set (e.g. PHONE_IPV4:50051)}"
 JNICTL="${JNICTL_BIN:-jnicli}"
 PASS=0
 FAIL=0

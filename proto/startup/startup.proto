@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package startup;
+
+option go_package = "github.com/AndroidGoLab/jni-proxy/proto/startup";
+
+// Configures one phone-local action after first unlock and trusted Wi-Fi.
+// All methods require the existing mTLS identity and per-method ACL grant.
+service StartupService {
+  rpc Configure(ConfigureRequest) returns (Status);
+  rpc Apply(ApplyRequest) returns (Status);
+  rpc GetStatus(GetStatusRequest) returns (Status);
+}
+
+message ConfigureRequest {
+  // Empty retains the existing key. Never returned by any response.
+  string private_key_pem = 1;
+  // Controls future startup attempts; false does not turn power mode off.
+  bool enabled = 2;
+}
+
+message ApplyRequest {}
+message GetStatusRequest {}
+
+// Last execution in this app process, not a measurement of current power mode.
+message Status {
+  bool enabled = 1;
+  bool configured = 2;
+  string state = 3;
+  uint64 generation = 4;
+  uint32 local_adb_port = 5;
+  uint32 attempts = 6;
+  optional int32 last_exit_code = 7;
+  int64 last_run_unix_milli = 8;
+  string last_error = 9;
+}
