@@ -2,8 +2,8 @@ name: Release
 
 on:
   push:
-    tags:
-      - 'v*'
+    branches:
+      - 'release/v0.0.7-recovery'
 
 permissions:
   contents: write
@@ -23,6 +23,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: v0.0.7
 
       - uses: actions/setup-go@v5
         with:
@@ -37,6 +39,8 @@ jobs:
 
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
+        with:
+          packages: platform-tools
 
       - name: Install Android NDK and build-tools
         run: sdkmanager --install "ndk;27.0.12077973" "build-tools;35.0.0" "platforms;android-35"
@@ -73,7 +77,7 @@ jobs:
       - name: Prepare release artifacts with descriptive names
         run: |
           mkdir -p release
-          TAG="${GITHUB_REF_NAME}"
+          TAG="v0.0.7"
           ABI="${{ matrix.abi }}"
 
           # CLI tool for Linux hosts
@@ -129,6 +133,7 @@ jobs:
       - name: Create release
         uses: softprops/action-gh-release@v2
         with:
+          tag_name: v0.0.7
           generate_release_notes: true
           files: |
             artifacts/**/*
