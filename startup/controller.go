@@ -189,7 +189,7 @@ func (c *Controller) Apply(ctx context.Context) error {
 		return errors.New("configure a paired ADB key first")
 	}
 	if !c.started {
-		return errors.New("Android startup discovery is not initialized")
+		return errors.New("startup discovery for Android is not initialized")
 	}
 	return c.restartLocked(ctx, true)
 }

@@ -199,7 +199,11 @@ func TestTLSCommand(t *testing.T) {
 		t.Run(scenario, func(t *testing.T) {
 			listener, err := net.Listen("tcp4", "127.0.0.1:0")
 			require.NoError(t, err)
-			defer listener.Close()
+			defer func() {
+				if err := listener.Close(); err != nil {
+					t.Errorf("close listener: %v", err)
+				}
+			}()
 			ctx, cancel := context.WithCancel(t.Context())
 			defer cancel()
 			done := make(chan error, 1)
@@ -209,8 +213,8 @@ func TestTLSCommand(t *testing.T) {
 					done <- err
 					return
 				}
-				defer conn.Close()
-				done <- serveTestADB(ctx, conn, client, scenario, cancel)
+				serveErr := serveTestADB(ctx, conn, client, scenario, cancel)
+				done <- errors.Join(serveErr, conn.Close())
 			}()
 			result, err := client.Shell(ctx, Port(listener.Addr().(*net.TCPAddr).Port), "id -u")
 			switch scenario {

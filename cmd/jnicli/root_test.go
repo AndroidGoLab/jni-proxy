@@ -197,9 +197,8 @@ func invokeJNICLIWithAuthorityForTest(
 	}
 	conn := grpcConn
 	grpcConn = nil
-	defer conn.Close()
-
-	return conn.Invoke(ctx, "/test.Service/Method", &emptypb.Empty{}, &emptypb.Empty{})
+	invokeErr := conn.Invoke(ctx, "/test.Service/Method", &emptypb.Empty{}, &emptypb.Empty{})
+	return errors.Join(invokeErr, conn.Close())
 }
 
 // TestValidateDirectLANAddress accepts RFC 1918 IPv4 host-port endpoints only.
